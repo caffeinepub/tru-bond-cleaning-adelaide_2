@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 200 700;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    /* Navy + Gold professional theme */
+    --background: 97 0.005 240;
+    --foreground: 22 0.04 240;
+    --card: 100 0 0;
+    --card-foreground: 22 0.04 240;
+    --popover: 100 0 0;
+    --popover-foreground: 22 0.04 240;
+    --primary: 28 0.08 240;
+    --primary-foreground: 97 0.005 240;
+    --secondary: 93 0.01 240;
+    --secondary-foreground: 28 0.08 240;
+    --muted: 93 0.01 240;
+    --muted-foreground: 55 0.025 240;
+    --accent: 72 0.12 80;
+    --accent-foreground: 20 0.05 240;
+    --destructive: 50 0.21 27;
+    --destructive-foreground: 97 0.005 240;
+    --border: 90 0.015 240;
+    --input: 90 0.015 240;
+    --ring: 28 0.08 240;
+    --radius: 0.5rem;
+    --chart-1: 28 0.08 240;
+    --chart-2: 72 0.12 80;
+    --chart-3: 60 0.15 160;
+    --chart-4: 65 0.18 30;
+    --chart-5: 45 0.1 200;
+    --sidebar: 97 0.005 240;
+    --sidebar-foreground: 22 0.04 240;
+    --sidebar-primary: 28 0.08 240;
+    --sidebar-primary-foreground: 97 0.005 240;
+    --sidebar-accent: 93 0.01 240;
+    --sidebar-accent-foreground: 28 0.08 240;
+    --sidebar-border: 90 0.015 240;
+    --sidebar-ring: 28 0.08 240;
+
+    /* Brand tokens */
+    --navy: 28 0.08 240;
+    --navy-dark: 22 0.07 240;
+    --gold: 72 0.14 80;
+    --gold-light: 82 0.1 80;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Fraunces", serif;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gold accent color utility */
+.bg-gold {
+  background-color: oklch(var(--gold));
+}
+.text-gold {
+  color: oklch(var(--gold));
+}
+.border-gold {
+  border-color: oklch(var(--gold));
+}
+.bg-navy {
+  background-color: oklch(var(--navy));
+}
+.text-navy {
+  color: oklch(var(--navy));
+}
+.bg-navy-dark {
+  background-color: oklch(var(--navy-dark));
+}
