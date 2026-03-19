@@ -1,40 +1,29 @@
 # Tru Bond Cleaning Adelaide
 
 ## Current State
-New project — no existing code.
+The site has 12 suburb pages sharing a single `SuburbPage.tsx` template, backed by `suburbsData.ts`. Each suburb currently has ~5 short paragraphs (~400 words). Pages use a single shared `suburb-hero.dim_1200x500.jpg` image with no extra visual content. The layout has a hero, main content, sidebar (quote card, checklist, testimonial), and why-choose-us section.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Full multi-page website for Tru Bond Cleaning Adelaide (bond cleaning company)
-- Pages: Home, Services, About, Contact, individual service pages
-- 3000+ words of SEO-optimised, semantically rich, skimmable content in Australian English, active voice, readable by a 10-year-old
-- Each service page: 400-word SEO description
-- Hero, services, about, testimonials, FAQ, and CTA sections on homepage
-- FAQ section on homepage answering all 12 specified questions including product links and competitor list (Tru Bond Cleaning at #5)
-- Contact form that opens user's email client pre-filled with form data, sending to humptydumptybondcleaning@gmail.com (email NOT visible on site)
-- WhatsApp contact button linking to 0488841883
-- Google Site Verification meta tag in <head>: `<meta name="google-site-verification" content="LGBPb31c8y91eig9pACZt2fDChSQQ7xZzPNGeQE7mlU" />`
-- SEO: title tags, meta descriptions, Open Graph tags, canonical URLs, schema markup for local business
-- Branded images on every page with descriptive alt text
-- Responsive design
+- 3 new branded images: clean kitchen, clean property interior, and professional team at work
+- Suburb-specific FAQ section (2 questions per suburb) on each suburb page
+- Pricing guide section on each suburb page
+- Trust/stats bar (e.g. 500+ jobs, 98% bond recovery, 10+ years experience)
+- E-E-A-T content: experience proof, authority signals, expert tips, trust markers
+- Expanded body content to ~1000 words per suburb with semantically optimised headings
+- Multiple images per suburb page (hero + 2 inline branded images with SEO alt text)
+- Open Graph image meta tag and keywords meta on each suburb page
 
 ### Modify
-- N/A
+- `SuburbPage.tsx`: add stats bar, pricing section, suburb FAQ, second inline image, enhanced schema markup
+- `suburbsData.ts`: expand all 12 suburbs to ~1000 words, add `suburbFaqs`, `pricing` hint, `stats` fields
 
 ### Remove
-- N/A
+- Nothing removed
 
 ## Implementation Plan
-1. Select no external components (contact via mailto, no backend email needed)
-2. Generate Motoko backend (basic canister)
-3. Generate hero image, service images, about image with Tru Bond Cleaning branding
-4. Build React frontend:
-   - App.tsx with React Router for pages
-   - Home page: hero, services grid, why choose us, FAQ (all 12 Qs), CTA, testimonials
-   - Services page + individual service pages (bond cleaning, end of lease, carpet cleaning, oven cleaning, window cleaning)
-   - About page
-   - Contact page with mailto form
-   - SEO component (react-helmet or inline meta in index.html)
-   - WhatsApp floating button
-   - Branded footer and nav
+1. Generate 2 new branded images (kitchen, property interior)
+2. Update `SuburbData` interface to include `suburbFaqs` and expand body content
+3. Expand all 12 suburbs to ~1000 words with E-E-A-T signals
+4. Update `SuburbPage.tsx` layout: stats bar, pricing table, suburb FAQ accordion, second image, enhanced metadata

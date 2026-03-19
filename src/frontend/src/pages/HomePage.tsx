@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { suburbs } from "@/data/suburbsData";
 import { Link } from "@tanstack/react-router";
 import {
   Award,
@@ -15,6 +16,7 @@ import {
   Eye,
   Home,
   Layers,
+  MapPin,
   Phone,
   Shield,
   Sparkles,
@@ -453,6 +455,58 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* AREAS WE SERVE */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-4">
+              Bond Cleaning Across All Adelaide Suburbs
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We provide professional bond cleaning services throughout the
+              greater Adelaide area. Click your suburb below to find out more
+              about our service in your area.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {suburbs.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/suburbs/${s.slug}`}
+                data-ocid="suburbs.link"
+              >
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:border-gold hover:shadow-md hover:-translate-y-0.5 transition-all group">
+                  <MapPin
+                    size={16}
+                    className="text-gold flex-shrink-0 group-hover:scale-110 transition-transform"
+                  />
+                  <div>
+                    <div className="font-semibold text-navy text-sm">
+                      {s.name}
+                    </div>
+                    <div className="text-muted-foreground text-xs">
+                      SA {s.postcode}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-muted-foreground text-sm mt-8">
+            Don&apos;t see your suburb? We cover all of greater Adelaide.{" "}
+            <a
+              href="https://wa.me/61488841883"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-navy font-semibold underline hover:text-gold"
+            >
+              Contact us
+            </a>{" "}
+            to check availability.
+          </p>
         </div>
       </section>
 
